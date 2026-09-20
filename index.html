@@ -6,13 +6,13 @@
     <title>Tummi | Artisanal Peruvian Empanadas</title>
     <style>
         :root {
-            --bg-black: #0a0a0a;
-            --card-black: #141414;
-            --border-color: #262626;
-            --text-main: #f5f5f5;
-            --text-muted: #a3a3a3;
+            --bg-base: #080808;
+            --bg-card: #121212;
+            --border-line: #222222;
+            --text-primary: #f8f8f8;
+            --text-secondary: #999999;
             --terracotta: #c86d51;
-            --terracotta-hover: #b25d43;
+            --terracotta-dark: #a3533b;
         }
 
         * {
@@ -23,8 +23,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-black);
-            color: var(--text-main);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
@@ -32,21 +32,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-black);
+            padding: 1.5rem 6%;
+            background-color: var(--bg-base);
+            border-bottom: 1px solid var(--border-line);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        .logo-container {
+        .brand-box {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .logo-container video {
+        .brand-box video {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -54,22 +54,26 @@
             border: 2px solid var(--terracotta);
         }
 
-        .brand-name {
-            font-size: 1.5rem;
+        .brand-title {
+            font-size: 1.4rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-main);
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
         }
 
         nav a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
@@ -80,24 +84,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 6rem 2rem;
-            background: linear-gradient(to bottom, var(--bg-black), var(--card-black));
+            padding: 7rem 2rem;
+            background: radial-gradient(circle at center, #161110 0%, var(--bg-base) 70%);
         }
 
         .hero video {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--terracotta);
-            box-shadow: 0 10px 30px rgba(200, 109, 81, 0.3);
+            box-shadow: 0 15px 35px rgba(200, 109, 81, 0.25);
             margin-bottom: 2rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
+            font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: 1px;
         }
@@ -108,97 +112,116 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
+            font-size: 1.15rem;
+            color: var(--text-secondary);
             max-width: 650px;
             margin-bottom: 2.5rem;
+            font-weight: 300;
         }
 
-        .btn {
+        .btn-main {
             background-color: var(--terracotta);
-            color: white;
-            padding: 0.8rem 2rem;
+            color: #ffffff;
+            padding: 0.9rem 2.2rem;
             border: none;
-            border-radius: 4px;
-            font-size: 1rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
             font-weight: 600;
-            letter-spacing: 1px;
-            cursor: pointer;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             text-decoration: none;
             transition: background-color 0.3s ease;
-            text-transform: uppercase;
         }
 
-        .btn:hover {
-            background-color: var(--terracotta-hover);
+        .btn-main:hover {
+            background-color: var(--terracotta-dark);
         }
 
         section {
-            padding: 5rem 10%;
+            padding: 6rem 8%;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
         }
 
-        .menu-item {
-            background-color: var(--card-black);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 6px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .menu-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-line);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
         }
 
-        .menu-item:hover {
-            transform: translateY(-5px);
+        .menu-card:hover {
             border-color: var(--terracotta);
+            transform: translateY(-4px);
         }
 
-        .menu-item h3 {
-            font-size: 1.3rem;
+        .menu-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 0.8rem;
-            color: var(--text-main);
+            color: var(--text-primary);
         }
 
-        .menu-item p {
-            color: var(--text-muted);
+        .menu-card p {
+            color: var(--text-secondary);
             font-size: 0.95rem;
+            font-weight: 300;
         }
 
-        .story {
-            background-color: var(--card-black);
+        .story-section {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-line);
+            border-bottom: 1px solid var(--border-line);
             text-align: center;
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 3.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
         }
 
-        .story p {
-            color: var(--text-muted);
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-content p {
+            color: var(--text-secondary);
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
             line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
         }
 
         footer {
             text-align: center;
-            padding: 3rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            background-color: var(--bg-black);
+            padding: 3.5rem 2%;
+            background-color: var(--bg-base);
+            border-top: 1px solid var(--border-line);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
@@ -206,11 +229,11 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-            nav a {
-                margin: 0 1rem;
-            }
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.3rem;
+            }
+            nav {
+                gap: 1.2rem;
             }
         }
     </style>
@@ -218,13 +241,13 @@
 <body>
 
     <header>
-        <div class="logo-container">
+        <div class="brand-box">
             <video src="image.png" autoplay loop muted playsinline></video>
-            <span class="brand-name">Tummi</span>
+            <span class="brand-title">Tummi</span>
         </div>
         <nav>
             <a href="#menu">Menu</a>
-            <a href="#story">Our Heritage</a>
+            <a href="#heritage">Heritage</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -232,48 +255,57 @@
     <section class="hero">
         <video src="image.png" autoplay loop muted playsinline></video>
         <h1>Authentic Peruvian <span>Artisanal Empanadas</span></h1>
-        <p>Handcrafted gourmet empanadas rooted in rich Peruvian heritage, made with premium ingredients and baked fresh to absolute perfection.</p>
-        <a href="#menu" class="btn">Explore Menu</a>
+        <p>Handcrafted gourmet empanadas rooted in rich tradition, made with premium ingredients and baked fresh to absolute perfection.</p>
+        <a href="#menu" class="btn-main">Explore Menu</a>
     </section>
 
     <section id="menu">
-        <h2 class="section-title">Our Artisanal Offerings</h2>
+        <div class="section-header">
+            <h2>The Menu</h2>
+            <p>Artisanal Craftsmanship & Tradition</p>
+        </div>
         <div class="menu-grid">
-            <div class="menu-item">
+            <div class="menu-card">
                 <h3>Classic Beef</h3>
-                <p>Savory seasoned beef prepared with traditional Peruvian spices and folded into our signature golden flaky pastry dough.</p>
+                <p>Savory seasoned beef prepared with traditional Peruvian spices, perfectly folded into our signature golden flaky pastry dough.</p>
             </div>
-            <div class="menu-item">
+            <div class="menu-card">
                 <h3>Tender Chicken</h3>
-                <p>Slow-cooked shredded chicken blended with authentic criollo herbs and savory vegetables.</p>
+                <p>Slow-cooked shredded chicken blended with authentic criollo herbs, aromatic vegetables, and rich flavor.</p>
             </div>
-            <div class="menu-item">
+            <div class="menu-card">
                 <h3>Pork & Seasoning</h3>
-                <p>Rich, slow-roasted pork infused with traditional spices and deep, exceptional flavor.</p>
+                <p>Rich, slow-roasted pork infused with traditional spices, delivering exceptional depth and warmth.</p>
             </div>
-            <div class="menu-item">
+            <div class="menu-card">
                 <h3>Kale & Spinach</h3>
-                <p>A vibrant, earthy blend of fresh greens and delicate seasonings for a lighter, wholesome artisanal bite.</p>
+                <p>A vibrant, earthy blend of fresh greens and delicate seasonings for a wholesome, lighter artisanal bite.</p>
             </div>
-            <div class="menu-item">
+            <div class="menu-card">
                 <h3>Vegan Plant-Based Beef</h3>
                 <p>A rich, fully plant-based savory ground filling that delivers all the traditional comfort without compromise.</p>
             </div>
         </div>
     </section>
 
-    <section id="story">
-        <div class="story">
-            <h2 class="section-title" style="margin-bottom: 1.5rem;">The Tummi Heritage & Tradition</h2>
-            <p>At Tummi, every single empanada is a tribute to authentic Peruvian culinary roots. Handcrafted with devotion, our creations combine time-honored recipes from Peru with a fresh, elevated perspective to bring you a truly exceptional artisanal experience.</p>
+    <section id="heritage" class="story-section">
+        <div class="story-content">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <h2>Our Heritage</h2>
+                <p>The Tummi Story</p>
+            </div>
+            <p>At Tummi, every single empanada is a tribute to authentic Peruvian culinary roots. Handcrafted with devotion, our creations combine time-honored recipes with a fresh, elevated perspective to bring you a truly extraordinary artisanal experience.</p>
             <p>From our premium ingredients and warm spices to our signature windowless kraft packaging accented with terracotta details, every element is designed to honor our culture and give you the very best.</p>
         </div>
     </section>
 
     <section id="contact" style="text-align: center;">
-        <h2 class="section-title">Get in Touch</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">Ready to order or plan your next event? Reach out to bring Tummi to your table.</p>
-        <a href="mailto:info@tummieats.com" class="btn">Contact Us</a>
+        <div class="section-header">
+            <h2>Get in Touch</h2>
+            <p>Bring Tummi to Your Table</p>
+        </div>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; font-weight: 300;">Ready to order or plan your next event? Reach out to connect with us.</p>
+        <a href="mailto:info@tummieats.com" class="btn-main">Contact Us</a>
     </section>
 
     <footer>
